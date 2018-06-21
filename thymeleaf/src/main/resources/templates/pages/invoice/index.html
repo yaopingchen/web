@@ -2,191 +2,120 @@
 <html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
     <title>Title</title>
     <div th:replace="/layout/js :: #js"></div>
     <div th:replace="/layout/css :: #css"></div>
 </head>
 <body>
-<div th:replace="layout/header"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-            <div th:replace="layout/left"></div>
-        </div>
-        <div class="col-md-10">
-            <div id="main-content">
-<ol class="breadcrumb">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">XXX</a></li>
-    <li class="active">XX管理</li>
-</ol>
-<div class="panel panel-default">
-    <div class="panel-body">
-        <form class="form-horizontal" role="form">
-            <div class="form-group form-group-md">
-                <label class="col-md-1 control-label">
-                    名称
-                </label>
-                <div class="col-md-2">
-                    <input class="form-control" name="name" type="text"/>
-                </div>
-                <label class="control-label col-md-1">
-                    编码
-                </label>
-                <div class="col-md-2">
-                    <input class="form-control" name="code"/>
-                </div>
-                <label class="control-label col-md-1">
-                    关联号
-                </label>
-                <div class="col-md-2">
-                    <input class="form-control" name="relatedNo"/>
-                </div>
-                <label class="control-label col-md-1">
-                    状态
-                </label>
-                <div class="col-md-2">
-                    <select class="form-control" name="status">
-                        <option value="0" selected="selected">初始化</option>
-                        <option value="1">启用</option>
-                        <option value="2">停用</option>
-                    </select>
-                </div>
+<div class="wrapper">
+    <div th:replace="layout/header"></div>
+    <div th:replace="layout/left"></div>
+    <div id="main-content" class="content-wrapper">
+        <section class="content-header">
+            <div class="container">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group row">
+                            <label class="col-md-1 control-label" for="name">名称</label>
+                            <div class="col-md-2">
+                                <input class="form-control" name="name" id="name" type="text"/>
+                            </div>
+                            <label class="control-label col-md-1" for="code">
+                                编码
+                            </label>
+                            <div class="col-md-2">
+                                <input class="form-control" name="code" id="code"/>
+                            </div>
+                            <label class="control-label col-md-1" for="relatedNo">
+                                关联号
+                            </label>
+                            <div class="col-md-2">
+                                <input class="form-control" name="relatedNo" id="relatedNo"/>
+                            </div>
+                            <label class="control-label col-md-1" for="status">
+                                状态
+                            </label>
+                            <div class="col-md-2">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="0" selected="selected">初始化</option>
+                                    <option value="1">启用</option>
+                                    <option value="2">停用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-1">
+                                来源类型
+                            </label>
+                            <div class="col-md-2">
+                                <input class="form-control" name="sourceType"/>
+                            </div>
+                            <label class="control-label col-md-1">
+                                业务类型
+                            </label>
+                            <div class="col-md-2">
+                                <input class="form-control" name="bizType"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-md-10 col-md-2">
+                                <button type="button" class="btn btn-sm btn-default">查询</button>
+                                <button type="button" class="btn btn-sm btn-default">清空</button>
+                                <button type="button" class="btn btn-sm btn-default">导出</button>
+                            </div>
+                        </div>
+                    </form>
             </div>
-            <div class="form-group form-group-md">
-                <label class="control-label col-md-1">
-                    来源类型
-                </label>
-                <div class="col-md-2">
-                    <input class="form-control" name="sourceType"/>
+        </section>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table" style="table-layout:fixed">
+                    <thead>
+                    <th>名称</th>
+                    <th>编码</th>
+                    <th>关联号</th>
+                    <th>状态</th>
+                    <th>来源类型</th>
+                    <th>业务类型</th>
+                    <th>金额</th>
+                    <th>创建人</th>
+                    <th>创建日期</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>XXX</td>
+                        <td>code</td>
+                        <td>WWW-1234</td>
+                        <td>启用</td>
+                        <td>网关</td>
+                        <td>CAINIAO</td>
+                        <td>123,112.01</td>
+                        <td>system</td>
+                        <td>2018-06-20</td>
+                        <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">巴拉巴拉巴拉纳balabaababababaaasdfdf</td>
+                        <td>
+                            <button class="btn btn-sm btn-default">查看</button>
+                            <button class="btn btn-sm btn-default">修改</button>
+                            <button class="btn btn-sm btn-default">停用</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--分页插件-->
+                <div style="text-align: right;">
+                    <ul id='damo'></ul>
                 </div>
-                <label class="control-label col-md-1">
-                    业务类型
-                </label>
-                <div class="col-md-2">
-                    <input class="form-control" name="bizType"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-10 col-md-2">
-                    <button type="button" class="btn btn-sm btn-default">查询</button>
-                    <button type="button" class="btn btn-sm btn-default">清空</button>
-                    <button type="button" class="btn btn-sm btn-default">导出</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-body">
-        <table class="table" style="table-layout:fixed">
-            <thead>
-            <th>名称</th>
-            <th>编码</th>
-            <th>关联号</th>
-            <th>状态</th>
-            <th>来源类型</th>
-            <th>业务类型</th>
-            <th>金额</th>
-            <th>创建人</th>
-            <th>创建日期</th>
-            <th>备注</th>
-            <th>操作</th>
-            </thead>
-            <tbody>
-            <tr>
-                <td>XXX</td>
-                <td>code</td>
-                <td>WWW-1234</td>
-                <td>启用</td>
-                <td>网关</td>
-                <td>CAINIAO</td>
-                <td>123,112.01</td>
-                <td>system</td>
-                <td>2018-06-20</td>
-                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">巴拉巴拉巴拉纳balabaababababaaasdfdf</td>
-                <td>
-                    <button class="btn btn-sm btn-default">查看</button>
-                    <button class="btn btn-sm btn-default">修改</button>
-                    <button class="btn btn-sm btn-default">停用</button>
-                </td>
-            </tr><tr>
-                <td>XXX</td>
-                <td>code</td>
-                <td>WWW-1234</td>
-                <td>启用</td>
-                <td>网关</td>
-                <td>CAINIAO</td>
-                <td>123,112.01</td>
-                <td>system</td>
-                <td>2018-06-20</td>
-                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">巴拉巴拉巴拉纳balabaababababaaasdfdf</td>
-                <td>
-                    <button class="btn btn-sm btn-default">查看</button>
-                    <button class="btn btn-sm btn-default">修改</button>
-                    <button class="btn btn-sm btn-default">停用</button>
-                </td>
-            </tr><tr>
-                <td>XXX</td>
-                <td>code</td>
-                <td>WWW-1234</td>
-                <td>启用</td>
-                <td>网关</td>
-                <td>CAINIAO</td>
-                <td>123,112.01</td>
-                <td>system</td>
-                <td>2018-06-20</td>
-                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">巴拉巴拉巴拉纳balabaababababaaasdfdf</td>
-                <td>
-                    <button class="btn btn-sm btn-default">查看</button>
-                    <button class="btn btn-sm btn-default">修改</button>
-                    <button class="btn btn-sm btn-default">停用</button>
-                </td>
-            </tr><tr>
-                <td>XXX</td>
-                <td>code</td>
-                <td>WWW-1234</td>
-                <td>启用</td>
-                <td>网关</td>
-                <td>CAINIAO</td>
-                <td>123,112.01</td>
-                <td>system</td>
-                <td>2018-06-20</td>
-                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">巴拉巴拉巴拉纳balabaababababaaasdfdf</td>
-                <td>
-                    <button class="btn btn-sm btn-default">查看</button>
-                    <button class="btn btn-sm btn-default">修改</button>
-                    <button class="btn btn-sm btn-default">停用</button>
-                </td>
-            </tr><tr>
-                <td>XXX</td>
-                <td>code</td>
-                <td>WWW-1234</td>
-                <td>启用</td>
-                <td>网关</td>
-                <td>CAINIAO</td>
-                <td>123,112.01</td>
-                <td>system</td>
-                <td>2018-06-20</td>
-                <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">巴拉巴拉巴拉纳balabaababababaaasdfdf</td>
-                <td>
-                    <button class="btn btn-sm btn-default">查看</button>
-                    <button class="btn btn-sm btn-default">修改</button>
-                    <button class="btn btn-sm btn-default">停用</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <!--分页插件-->
-        <div style="text-align: right;">
-            <ul id='damo'></ul>
-        </div>
-    </div>
-</div>
             </div>
         </div>
     </div>
+    <div th:replace="layout/footer"></div>
+    <div th:replace="layout/control"></div>
 </div>
-<div th:replace="layout/footer"></div>
+
 </body>
 </html>

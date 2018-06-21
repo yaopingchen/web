@@ -2,24 +2,25 @@
 <html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
     <title>Title</title>
     <div th:replace="/layout/js :: #js"></div>
     <div th:replace="/layout/css :: #css"></div>
 </head>
 <body>
-<div th:replace="layout/header"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-            <div th:replace="layout/left"></div>
-        </div>
-        <div class="col-md-10">
-            <div id="main-content">
-                首页
-            </div>
-        </div>
+<div class="wrapper">
+    <div th:replace="layout/header"></div>
+    <div th:replace="layout/left"></div>
+    <div class="content-wrapper">
+        首页
     </div>
+    <div th:replace="layout/footer"></div>
+    <div th:replace="layout/control"></div>
 </div>
-<div th:replace="layout/footer"></div>
+
 </body>
 </html>
+
+
